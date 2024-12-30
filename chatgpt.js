@@ -1,28 +1,31 @@
 require("dotenv").config();
 const Openai = require("openai");
-
+const openai = new Openai({
+  apiKey: process.env.SECRET_KEY,
+});
 
 const chatgptAPI = {};
 
 chatgptAPI.beginjudgment = async (prompt) => {
-  const openai = new Openai({
-    apiKey: process.env.SECRET_KEY,
-  });
   try {
       const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }],
-        max_tokens: 30,
+        messages: [
+          { role: "system", content: "당신은 한국어를 기본으로 하는 법 전문가입니다." },
+          { role: "system", content: "법에대한 질문을 받으면 최대한 판례와 법을 근거로 답변해야 합니다." },
+          { role: "system", content: "만약 판단하기 어려운 질문이라면 더 구체적인 상황을 설명해달라고 요청해야 합니다." },
+          { role: "system", content: "법과 상관없는 질문을 받으면 법에 대한 질문을 해달라고 요청합니다. 그리고 말끝마다 이힝을 반드시 붙여야 합니다." },
+          { role: "user", content: prompt },
+        ],
+        max_tokens: 1000,
       });
-    console.log("ChatGPT Response:", response.data.choices[0].message.content);
     return response.choices[0].message.content;
   } catch (error) {
     console.error("Error message:", error);
     throw error; // 오류를 던져서 상위로 전달
   }
-  
 };
-chatgptAPI.beginjudgment("hi");
+chatgptAPI.beginjudgment("반갑노 게이야");
 module.exports = chatgptAPI;
 
 

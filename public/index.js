@@ -3,12 +3,15 @@ const judgement = document.querySelector(".judgement");
 const button = document.querySelector(".button");
 
 button.addEventListener("click", async () => {
-  const text = document.querySelector(".textarea").value;
+  const textarea = document.querySelector(".textarea");
+  const text = textarea.value.trim();
   if (!text || text === "") return console.log("Empty text");
-  const div = document.createElement("div");
-  div.textContent = text;
-  div.className = "question";
-  messageBox.appendChild(div);
+  const userDiv = document.createElement("div");
+  userDiv.className = "question";
+  userDiv.innerHTML = text;
+  messageBox.appendChild(userDiv);
+  console.log(text);
+  messageBox.scrollTo(0, messageBox.scrollHeight); // 스크롤 아래로 이동
   try {
     const response = await fetch("http://localhost:3000/api", {
       method: "POST",
@@ -16,13 +19,20 @@ button.addEventListener("click", async () => {
       body: JSON.stringify({ text }),
     });
     const result = await response.json();
-    const div = document.createElement("div");
-    div.textContent = result.response;
-    div.className = "judgement";
-    messageBox.appendChild(div);
-    text.textContent = "";
+    console.log(result);
+    const responseDiv = document.createElement("div");
+    responseDiv.className = "judgement";
+    messageBox.appendChild(responseDiv);
+    typingAnimation(result.response, responseDiv);
+    textarea.value = ""; //입력값 초기화
   } catch (error) {
     console.error(error); // 수정
   }
 });
 
+function typingAnimation(text, htmlElement, index = 0) {
+  if (index < text.length) {
+    htmlElement.innerHTML += text.charAt(index)=="." ? text.charAt(index)+"<br>" : text.charAt(index);
+    setTimeout(() => typingAnimation(text, htmlElement, ++index), 20);
+  };
+};

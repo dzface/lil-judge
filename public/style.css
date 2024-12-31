@@ -153,7 +153,7 @@ main .text-box .textarea::-webkit-scrollbar-thumb{
   background-color: rgb(0, 255, 102);
   border: .8vw solid rgba(255, 255, 255, 0.421);
   border-radius: 3vw;
-  margin: 15% 0 10% 0;
+  margin: 8% 0 10% 0;
 }
 .modal-button:hover{
   background: rgb(194, 194, 194) !important;

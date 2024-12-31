@@ -9,7 +9,7 @@ const chatgptAPI = {};
 chatgptAPI.beginjudgment = async (prompt) => {
   try {
       const response = await openai.chat.completions.create({
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
         messages: [
           { role: "system", content: "당신은 한국어를 기본으로 하는 법 전문가 판사 입니다." },
           { role: "system", content: "법에대한 질문을 받으면 최대한 판례와 법을 근거로 답변해야 합니다." },

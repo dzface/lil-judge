@@ -1,3 +1,9 @@
+:root{
+  --back-color: rgba(255, 255, 255, 0.877);
+  --button-color: rgb(150, 150, 150);
+  --message-color: #414141c9;
+  --question-color: rgb(0, 163, 169);
+}
 *{margin: 0;padding: 0;}
 body{width: 100%;height: 100%; overflow: hidden;}
 .container{
@@ -32,7 +38,7 @@ main{
   flex-direction: column;
   align-items: center;
   border-radius: 3vw 3vw 0 0;
-  background-color: rgba(255, 255, 255, 0.877);
+  background-color: var(--back-color);
 }
 main .icon-box{
   font-size: 7vw;
@@ -54,12 +60,12 @@ main .message-box::-webkit-scrollbar{
   background-color:transparent;
 }
 main .message-box::-webkit-scrollbar-thumb{
-  background-color: #414141c9;
+  background-color: var(--message-color);
   border-radius: 30vw;
 }
 .message-box .question{
   text-align: right;
-  color: cadetblue;
+  color: var(--question-color);
   margin: .8vw 0;
 }
 main .text-box{
@@ -95,11 +101,62 @@ main .text-box .textarea::-webkit-scrollbar-thumb{
   aspect-ratio: 1;
   border-radius: 100%;
   border: .3vw solid black;
-  background-color: rgb(150, 150, 150);
+  background-color: var(--button-color);
   cursor: pointer;
 }
-footer{
-  background-color: purple;
+
+
+
+.modal{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.785);
+  animation: fadein 2s;
+  transition: background-color 3s ease;
+}
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.modal > .modal-box{
+  width: 40vw;
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3vw;
+  background-color: var(--back-color);
+}
+.modal > .modal-box h1{
+  display: block;
+  white-space: nowrap;
+  font-size: 2vw;
+  margin: 10%;
+}
+.modal > .modal-box > div{
+  display: inline-block;
+  font-size: 1.5vw;
+  padding: 0 3vw;
+  margin: auto;
+}
+.modal > .modal-box .modal-button{
+  width: 6vw;
+  aspect-ratio: 1.8;
+  font-size: 2vw;
+  color: #ffffff;
+  text-align: center;
+  background-color: rgb(0, 255, 102);
+  border: .8vw solid rgba(255, 255, 255, 0.421);
+  border-radius: 3vw;
+  margin: 15% 0 10% 0;
+}
+.modal-button:hover{
+  background: rgb(194, 194, 194) !important;
 }
 
 

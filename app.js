@@ -6,7 +6,12 @@ const chatgptAPI = require("./chatgpt");
 
 const app = express();
 const server = http.createServer(app);
-
+const cors = require('cors');
+app.use(cors({
+    origin: process.env.URL, // 허용할 도메인
+    methods: ['GET', 'POST'], // 허용할 HTTP 메서드
+    credentials: true, // 인증 정보를 포함할 경우
+}));
 app.use(express.static(path.join(__dirname, "./public")));
 app.use(express.json());
 

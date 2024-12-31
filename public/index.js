@@ -1,3 +1,4 @@
+require("dotenv").config();
 const messageBox = document.querySelector(".message-box");
 const judgement = document.querySelector(".judgement");
 const button = document.querySelector(".button");
@@ -19,7 +20,7 @@ button.addEventListener("click", async () => {
   textarea.value = ""; //입력값 초기화
   messageBox.scrollTo(0, messageBox.scrollHeight); // 스크롤 아래로 이동
   try {
-    const response = await fetch("http://localhost:3000/api", {
+    const response = await fetch(process.env.URL+"/api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text }),

@@ -1,5 +1,4 @@
-require("dotenv").config();
-const URL = process.env.URL || "http://localhost:3000";
+const URL = `https://port-0-lil-judge-m0w3ol9a3c5c0318.sel4.cloudtype.app`;
 const messageBox = document.querySelector(".message-box");
 const judgement = document.querySelector(".judgement");
 const button = document.querySelector(".button");

@@ -26,10 +26,13 @@ header{
   color: white;
   background-color: rgba(0, 0, 0, 0.76);
   margin-bottom: 3vh;
-  padding-top: .3vw;
+  padding-top: 1vw;
+  @media (max-width:768px){
+    font-size:5vw;
+  };
 }
 header > p {
-  margin: 0 1%;
+  margin: 1% 1%;
 }
 main{
   width: 70dvw;
@@ -38,6 +41,10 @@ main{
   flex-direction: column;
   align-items: center;
   border-radius: 3vw 3vw 0 0;
+  background-color: rgba(255, 255, 255, 0.877);
+  @media (max-width:768px){
+    width: 95dvw;
+  };
   background-color: var(--back-color);
 }
 main .icon-box{
@@ -54,6 +61,13 @@ main .message-box{
   border-radius: 2vw;
   padding: .5vw;
   gap: 0.5vw 0;
+  @media (max-width:768px){
+    width: 80dvw;
+    max-height: 80dvh;
+    min-height: 40vh;
+    height: 85vh;
+    font-size: 5vw;
+  };
 }
 main .message-box::-webkit-scrollbar{
   width: 1vw;
@@ -75,6 +89,10 @@ main .text-box{
   justify-content: center;
   margin: 1vw 0 2vw 0;
   background-color: rgba(127, 255, 212, 0.116);
+  @media (max-width:768px){
+    height: 5dvh;
+    margin: 3vw 0 2vw 0;
+  };
 }
 main .text-box .textarea{
   min-width: 40vw;
@@ -82,6 +100,13 @@ main .text-box .textarea{
   font-family: 'HakgyoansimBareondotumB';
   font-size: 1.2vw;
   padding: .3vw .5vw;
+  @media (max-width:768px){
+    min-width: 70vw;
+    width: 95dvw;
+    min-height: 3dvh;
+    height: 4dvh;
+    font-size: 5.5vw;
+  };
 }
 main .text-box .textarea::-webkit-scrollbar{
     width: 1vw;
@@ -103,6 +128,14 @@ main .text-box .textarea::-webkit-scrollbar-thumb{
   border: .3vw solid black;
   background-color: var(--button-color);
   cursor: pointer;
+  @media (max-width:768px){
+    position:relative;
+    left: 0%;
+    width: 8vw;
+    height: 8vw;
+    font-size: 5vw;
+    margin-left: .4vw;
+  }
 }
 
 
@@ -131,18 +164,28 @@ main .text-box .textarea::-webkit-scrollbar-thumb{
   align-items: center;
   border-radius: 3vw;
   background-color: var(--back-color);
+  @media (max-width:768px){
+    width:85vw;
+    height: 70vh;
+  };
 }
 .modal > .modal-box h1{
   display: block;
   white-space: nowrap;
   font-size: 2vw;
   margin: 10%;
+  @media (max-width:768px){
+    font-size: 7vw;
+  };
 }
 .modal > .modal-box > div{
   display: inline-block;
   font-size: 1.5vw;
   padding: 0 3vw;
   margin: auto;
+  @media (max-width:768px){
+    font-size: 5vw;
+  };
 }
 .modal > .modal-box .modal-button{
   width: 6vw;
@@ -154,6 +197,12 @@ main .text-box .textarea::-webkit-scrollbar-thumb{
   border: .8vw solid rgba(255, 255, 255, 0.421);
   border-radius: 3vw;
   margin: 8% 0 10% 0;
+  @media (max-width:768px){
+    width: 20vw;
+    font-size: 7vw;
+    border-radius: 10vw;
+    margin: 15% 0 10% 0;
+  };
 }
 .modal-button:hover{
   background: rgb(194, 194, 194) !important;

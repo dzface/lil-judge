@@ -64,7 +64,7 @@ main .message-box{
   @media (max-width:768px){
     width: 80dvw;
     max-height: 80dvh;
-    min-height: 40vh;
+    min-height: 35dvh;
     height: 85vh;
     font-size: 5vw;
   };
